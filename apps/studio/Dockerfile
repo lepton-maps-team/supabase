@@ -17,9 +17,9 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN apt-get update -qq && \
   apt-get install -y --no-install-recommends \
   git \
-  python3 \ 
+  python3 \
   ca-certificates \
-  build-essential && \ 
+  build-essential && \
   rm -rf /var/lib/apt/lists/* && \
   update-ca-certificates
 
@@ -51,6 +51,7 @@ CMD ["pnpm", "dev:studio"]
 # Compile Next.js
 FROM dev AS builder
 
+ENV NEXT_PUBLIC_BASE_PATH="/vicoverage/base"
 RUN pnpm --filter studio exec next build
 
 # Copy only compiled code and dependencies
