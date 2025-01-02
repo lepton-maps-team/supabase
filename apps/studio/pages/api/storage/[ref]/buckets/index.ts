@@ -24,7 +24,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
   const { data, error } = await supabase.storage.listBuckets()
   if (error) {
-    return res.status(500).json({ error: { message: 'Internal Server Error' } })
+    return res.status(500).json({ error: { message: 'Internal Server Error', error } })
   }
 
   return res.status(200).json(data)
