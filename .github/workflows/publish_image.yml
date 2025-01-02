@@ -4,7 +4,7 @@ on:
   # run this action every Monday at 04:00 UTC (Singapore noon)
   push:
     branches:
-      - main
+      - master
 
 jobs:
   settings:
