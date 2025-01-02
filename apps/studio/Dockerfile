@@ -18,9 +18,9 @@ RUN corepack enable
 RUN apt-get update -qq && \
   apt-get install -y --no-install-recommends \
   git \
-  python3 \ 
+  python3 \
   ca-certificates \
-  build-essential && \ 
+  build-essential && \
   rm -rf /var/lib/apt/lists/* && \
   update-ca-certificates
 
@@ -50,6 +50,7 @@ CMD ["pnpm", "dev:studio"]
 # Compile Next.js
 FROM dev AS builder
 
+ENV NEXT_PUBLIC_BASE_PATH="/_/studio"
 RUN pnpm dlx turbo@2.0.4 run build --filter studio -- --no-lint
 
 # Copy only compiled code and dependencies
