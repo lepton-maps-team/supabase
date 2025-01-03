@@ -50,7 +50,7 @@ CMD ["pnpm", "dev:studio"]
 # Compile Next.js
 FROM dev AS builder
 
-ENV NEXT_PUBLIC_BASE_PATH="/_/studio"
+ENV NEXT_PUBLIC_BASE_PATH="/base"
 RUN pnpm dlx turbo@2.0.4 run build --filter studio -- --no-lint
 
 # Copy only compiled code and dependencies
