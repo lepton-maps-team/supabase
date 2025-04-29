@@ -51,7 +51,7 @@ CMD ["pnpm", "dev:studio"]
 # Compile Next.js
 FROM dev AS builder
 
-ENV NEXT_PUBLIC_BASE_PATH="/base/studio"
+ENV NEXT_PUBLIC_BASE_PATH="/uat/vicoverage/base"
 RUN pnpm --filter studio exec next build
 
 # Copy only compiled code and dependencies
